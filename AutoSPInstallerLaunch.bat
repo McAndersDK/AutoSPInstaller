@@ -54,7 +54,7 @@ ECHO - OK.
 GOTO LAUNCHSCRIPT
 :LAUNCHSCRIPT
 ECHO - Starting AutoSPInstaller...
-"%SYSTEMROOT%\system32\windowspowershell\v1.0\powershell.exe" -Command Start-Process "$PSHOME\powershell.exe" -Verb RunAs -ArgumentList "'-NoExit -ExecutionPolicy Bypass %~dp0\AutoSPInstallerMain.ps1 %InputFile%'"
+"%SYSTEMROOT%\system32\windowspowershell\v1.0\powershell.exe" -Command Start-Process "$PSHOME\powershell.exe" -Verb RunAs -ArgumentList "'-NoExit -ExecutionPolicy Bypass -command import-module AutoSPInstaller; Invoke-AutoSPInstaller -inputFile %~dp0\%InputFile%'"
 GOTO END
 :END
 ECHO - AutoSPInstaller launched - finished with AutoSPInstallerLaunch.bat.

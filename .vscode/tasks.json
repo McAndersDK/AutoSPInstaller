@@ -1,0 +1,27 @@
+{
+  // See https://go.microsoft.com/fwlink/?LinkId=733558
+  // for the documentation about the tasks.json format
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "taskName": "Powershell Script Analyzer",
+      "type": "shell",
+      "command": "invoke-scriptanalyzer -path .",
+      "problemMatcher": [
+        "$pester"
+      ]
+    },
+    {
+      "taskName": "Powershell Module Build",
+      "type": "shell",
+      "command": "./build.ps1",
+      "problemMatcher": [
+        "$pester"
+      ],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    }
+  ]
+}
