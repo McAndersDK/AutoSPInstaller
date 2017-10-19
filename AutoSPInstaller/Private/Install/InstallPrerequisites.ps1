@@ -80,7 +80,7 @@ Function InstallPrerequisites([xml]$xmlinput) {
                       Import-Module ServerManager
                       if (!(Get-WindowsFeature -Name NET-Framework-Core).Installed) {
                           Start-Process -FilePath DISM.exe -ArgumentList "/Online /Enable-Feature /FeatureName:NetFx3 /All /LimitAccess /Source:`"$env:SPbits\PrerequisiteInstallerFiles\sxs`"" -NoNewWindow -Wait
-                          ##Install-WindowsFeature NET-Framework-Core –Source "$env:SPbits\PrerequisiteInstallerFiles\sxs" | Out-Null
+                          ##Install-WindowsFeature NET-Framework-Core -Source "$env:SPbits\PrerequisiteInstallerFiles\sxs" | Out-Null
                           Write-Host -ForegroundColor Green "Done."
                       }
                       else {Write-Host -ForegroundColor White "Already installed."}
